@@ -1,0 +1,167 @@
+%% Copyright 2007 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[12pt,a4paper]{moderncv}
+
+% moderncv themes
+\moderncvtheme[blue]{classic}                 % optional argument are 'blue' (default), 'orange', 'red', 'green', 'grey' and 'roman' (for roman fonts, instead of sans serif fonts)
+%\moderncvtheme[green]{classic}                % idem
+
+% character encoding
+\usepackage[utf8]{inputenc}                   % replace by the encoding you are using
+
+% adjust the page margins
+\usepackage[scale=0.8]{geometry}
+\recomputelengths                             % required when changes are made to page layout lengths
+
+% personal data
+\firstname{Joel}
+\familyname{Pettersson}
+\title{Curriculum Vitae}               % optional, remove the line if not wanted
+\address{Redargatan 5 LÄG32}{120 61 Stockholm}    % optional, remove the line if not wanted
+\mobile{070 - 339 79 89}                    % optional, remove the line if not wanted
+%\phone{phone (optional)}                      % optional, remove the line if not wanted
+%\fax{fax (optional)}                          % optional, remove the line if not wanted
+\email{petterssonjoel@gmail.com}                      % optional, remove the line if not wanted
+\extrainfo{\weblink{http://www.csc.kth.se/\textasciitilde joelpet}} % optional, remove the line if not wanted
+%\photo[80pt]{profilbild}                         % '64pt' is the height the picture must be resized to and 'picture' is the name of the picture file; optional, remove the line if not wanted
+%\quote{Some quote (optional)}                 % optional, remove the line if not wanted
+
+%\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
+
+
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+\maketitle
+
+
+
+\section{Utbildning}
+\cventry{2007 -- idag}{Civilingenjörsutbildning i
+datateknik}{KTH}{Stockholm}{}{Inlett tredje året på KTH:s datatekniklinje.}  % arguments 3 to 6 are optional
+\cventry{2004 --2007}{Naturvetenskapligt gymnasium}{Jenny
+Nyströmsskolan}{Kalmar}{}{Naturvetenskapsprogrammet (NVMD), inriktning Matematik
+och datavetenskap.}  % arguments 3 to 6 are optional
+
+
+\section{Erfarenheter}
+\subsection{Serverhantering}
+\cventry{2008 -- idag}{Experimentell Ubuntu-server}{}{}{}{Installation och
+underhåll av privat experimentell Ubuntu-server med bl.a. LAMP.}
+\subsection{Webbutveckling}
+\cventry{2009}{www.JugglingFootballs.com}{Victor Rubilar}{}{}{Fotbollsjonglören
+Victor Rubilar hade skapat en webbsidelayout i Photoshop som han behövde hjälp
+med att överföra till webben samt att få funktioner på serversidan
+implementerade.  Detta gjorde jag med hjälp av PHP-ramverket \emph{CakePHP} som
+tillämpar designmönstret \emph{MVC}. Koden lät jag versionshanteras av Bazaar
+VCS, och finns för närvarande att checka ut med kommandot \texttt{bzr branch
+http://fb7.dyndns.org/victorrubilar/juggler}.
+\weblink{http://www.jugglingfootballs.com}}
+\cventry{2008 --2009}{Västerport Spa \& Relax:s webbplats}{Västerport
+Relax}{Kalmar}{}{Det nystartade Västerport Relax i Kalmar önskade marknadsföra sig
+via Internet och kontakade mig för att diskutera en webblösning. Ledd av
+företagets önskemål på webbplatsens formgivning utgick jag ifrån en fritt
+licensierad design och anpassade denna så att den mötte önskningarna.
+Därefter hjälpte jag beställaren att fylla webbplatsen med dess innehåll.
+\weblink{http://www.vasterportrelax.se}}
+
+
+\section{Programmeringsspråk och dylikt}
+\cvlanguage{Java}{Hemmastadd}{Programmerat i Java sedan gymnasiet och nu senast
+på KTH.}
+\cvlanguage{PHP}{Väl förtrogen}{Använt PHP i ett flertal webbprojekt sedan
+gymnasiet.}
+\cvlanguage{(X)HTML}{Väl förtrogen}{Följer ofta diskussioner kring åtkomlighet
+och användarvänlighet.}
+\cvlanguage{CSS}{Goda kunskaper}{Kan det mesta av CSS-standarden som stöds i
+dagens webbläsare samt känner till några vanliga CSS-trick.}
+\cvlanguage{Javascript}{Grundläggande}{Använt och modifierat en del
+Javascript-kod, inklusive jQuery.}
+\cvlanguage{SQL}{Grundläggande}{Hanterar de mest basala operationerna i
+dagsläget och läser dessutom för närvarande en kurs i databasteknik.}
+
+
+\section{Mjukvara}
+\cvcomputer{Editor}{Emacs, \textbf{VIM}}{Utvecklinsmiljö}{\textbf{Eclipse}, Netbeans}
+\cvcomputer{Versionshantering}{\textbf{Bazaar}, GIT,
+SVN}{Operativsystem}{\textbf{Ubuntu}, Windows}
+
+
+
+\section{Språk}
+\cvlanguage{Svenska}{Modersmål}{Eventuellt med inslag av öländska}
+\cvlanguage{Engelska}{Flytande}{Bland annat genom MVG i gymnasiets Engelska A-B}
+\cvlanguage{Spanska}{Stapplande}{Kunskaperna från grundskolan är något rostiga}
+
+
+\section{Intressen}
+\cvline{Data \& IT}{\small Det har alltid funnits ett stort intresse för allt
+vad datorer och informationsteknik innebär, vilket jag nu delvis får utlopp för
+på KTH}
+\cvline{Sport}{\small Min sportbana inleddes som fotbollsmålvakt på Öland, men
+har nu övergått till volleyboll här i stan. Ett och annat styrketräningspass
+försöker jag också hinna med, liksom all annan motion som kan tänkas dyka upp.}
+
+
+
+
+
+%\section{Education}
+%\cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}  % arguments 3 to 6 are optional
+%\cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}  % arguments 3 to 6 are optional
+
+%\section{Master thesis}
+%\cvline{title}{\emph{Title}}
+%\cvline{supervisors}{Supervisors}
+%\cvline{description}{\small Short thesis abstract}
+
+%\section{Experience}
+%\subsection{Vocational}
+%\cventry{year--year}{Job title}{Employer}{City}{}{Description}                % arguments 3 to 6 are optional
+%\cventry{year--year}{Job title}{Employer}{City}{}{Description}                % arguments 3 to 6 are optional
+%\subsection{Miscellaneous}
+%\cventry{year--year}{Job title}{Employer}{City}{}{Description line 1\newline{}Description line 2}% arguments 3 to 6 are optional
+
+%\section{Languages}
+%\cvlanguage{language 1}{Skill level}{Comment}
+%\cvlanguage{language 2}{Skill level}{Comment}
+%\cvlanguage{language 3}{Skill level}{Comment}
+
+%\section{Computer skills}
+%\cvcomputer{category 1}{XXX, YYY, ZZZ}{category 4}{XXX, YYY, ZZZ}
+%\cvcomputer{category 2}{XXX, YYY, ZZZ}{category 5}{XXX, YYY, ZZZ}
+%\cvcomputer{category 3}{XXX, YYY, ZZZ}{category 6}{XXX, YYY, ZZZ}
+
+%\section{Interests}
+%\cvline{hobby 1}{\small Description}
+%\cvline{hobby 2}{\small Description}
+%\cvline{hobby 3}{\small Description}
+
+%\closesection{}                   % needed to renewcommands
+%\renewcommand{\listitemsymbol}{-} % change the symbol for lists
+
+%\section{Extra 1}
+%\cvlistitem{Item 1}
+%\cvlistitem{Item 2}
+%\cvlistitem[+]{Item 3}            % optional other symbol
+
+%\section{Extra 2}
+%\cvlistdoubleitem[\Neutral]{Item 1}{Item 4}
+%\cvlistdoubleitem[\Neutral]{Item 2}{Item 5}
+%\cvlistdoubleitem[\Neutral]{Item 3}{}
+
+% Publications from a BibTeX file
+%\nocite{*}
+%\bibliographystyle{plain}
+%\bibliography{publications}       % 'publications' is the name of a BibTeX file
+
+\end{document}
+
+
+%% end of file `template_en.tex'.
