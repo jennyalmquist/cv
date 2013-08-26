@@ -1,5 +1,5 @@
 %% start of file `moderncvthemecasual.sty'.
-%% Copyright 2007 Xavier Danaux (xdanaux@gmail.com).
+%% Copyright 2006-2011 Xavier Danaux (xdanaux@gmail.com).
 %
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License version 1.3c,
@@ -10,7 +10,7 @@
 %                identification
 %-------------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{moderncvthemecasual}[2007/05/28 v0.6 modern curriculum vitae style: casual]
+\ProvidesPackage{moderncvthemecasual}[2011/12/04 v0.14 modern curriculum vitae style: casual]
 
 
 %-------------------------------------------------------------------------------
@@ -33,9 +33,15 @@
 % red
 \newif\if@colorred\@colorredfalse
 \DeclareOption{red}{\@colorredtrue}
+% purple
+\newif\if@colorpurple\@colorpurplefalse
+\DeclareOption{purple}{\@colorpurpletrue}
 % grey
 \newif\if@colorgrey\@colorgreyfalse
 \DeclareOption{grey}{\@colorgreytrue}
+% black
+\newif\if@colorblack\@colorblackfalse
+\DeclareOption{black}{\@colorblacktrue}
 
 % roman option
 \newif\if@roman\@romanfalse
@@ -46,7 +52,7 @@
   \PackageWarning{moderncvthemecasual}{Unknown option ‘\CurrentOption’}}
 
 % execute default options
-\ExecuteOptions{color}
+\ExecuteOptions{}
 
 % process given options
 \ProcessOptions\relax
@@ -56,7 +62,6 @@
 %                style definition
 %-------------------------------------------------------------------------------
 % symbols used
-\renewcommand*{\listitemsymbol}{\textbullet}
 
 % colors
 \definecolor{firstnamecolor}{rgb}{0.65,0.65,0.65}
@@ -83,11 +88,25 @@
   \definecolor{sectiontitlecolor}{rgb}{0.95,0.20,0.20}
   \definecolor{subsectioncolor}{rgb}{0.95,0.20,0.20}
   \definecolor{footersymbolcolor}{rgb}{0.95,0.20,0.20}\fi
+\if@colorpurple
+  \definecolor{sectionrectanglecolor}{rgb}{0.40,0.23,0.80}
+  \definecolor{sectiontitlecolor}{rgb}{0.50,0.33,0.80}
+  \definecolor{subsectioncolor}{rgb}{0.50,0.33,0.80}
+  \definecolor{addresscolor}{rgb}{0.40,0.23,0.70}\fi
 \if@colorgrey
   \definecolor{sectionrectanglecolor}{rgb}{0.75,0.75,0.75}
   \definecolor{sectiontitlecolor}{rgb}{0.35,0.35,0.35}
   \definecolor{subsectioncolor}{rgb}{0.35,0.35,0.35}
   \definecolor{footersymbolcolor}{rgb}{0.35,0.35,0.35}\fi
+\if@colorblack
+  \definecolor{firstnamecolor}{rgb}{0,0,0}
+  \definecolor{familynamecolor}{rgb}{0,0,0}
+  \definecolor{quotecolor}{rgb}{0,0,0}
+  \definecolor{addresscolor}{rgb}{0,0,0}
+  \definecolor{sectionrectanglecolor}{rgb}{0,0,0}
+  \definecolor{sectiontitlecolor}{rgb}{0,0,0}
+  \definecolor{subsectioncolor}{rgb}{0,0,0}
+  \definecolor{footersymbolcolor}{rgb}{0,0,0}\fi
 
 % fonts
 \if@roman
@@ -104,21 +123,6 @@
 
 % styles
 
-% maketitle
-\renewcommand*{\maketitle}{%
-  {%
-    \ifthenelse{\isundefined{\@photo}}%
-      {}%
-      {{\color{firstnamecolor}\framebox{\includegraphics[height=\@photoheight]{\@photo}}}}%
-    \hfill%
-    \raggedleft{\firstnamestyle{\MakeLowercase{\@firstname}}\familynamestyle{\MakeLowercase{\@familyname}}}\\[-.35em]}%
-  {\color{firstnamecolor}\rule{\textwidth}{.25ex}\\[2.5em]}%
-% optional quote
-  \ifthenelse{\isundefined{\@quote}}%
-    {}%
-    {\centering{\begin{minipage}{\quotewidth}\centering\quotestyle{\@quote}\end{minipage}}\\[2.5em]}%
-  }%
-
 % cv footer
 \newif\if@firstfooterelement\@firstfooterelementtrue
 \providecommand*{\footersymbol}{}
@@ -126,7 +130,6 @@
   \if@firstfooterelement%
   \else%
     { ~~\color{footersymbolcolor}\textbullet~~~}\fi}
-\providecommand*{\makefooter}{}
 \renewcommand*{\makefooter}{%
   \fancypagestyle{plain}{%
     \fancyfoot[c]{%
@@ -136,15 +139,36 @@
       \ifthenelse{\isundefined{\@addressstreet}}{}{%
         \addresssymbol~\@addressstreet%
         \@firstfooterelementfalse%
-        \ifthenelse{\isundefined{\@addresscity}}{}{\footersymbol\@addresscity}\\\@firstfooterelementtrue}%
+        \ifthenelse{\isundefined{\@addresscity}}{}{~--~\@addresscity}\\\@firstfooterelementtrue}%
       \ifthenelse{\isundefined{\@mobile}}{}{\footersymbol\mobilesymbol~\@mobile\@firstfooterelementfalse}%
       \ifthenelse{\isundefined{\@phone}}{}{\footersymbol\phonesymbol~\@phone\@firstfooterelementfalse}%
       \ifthenelse{\isundefined{\@fax}}{}{\footersymbol\faxsymbol~\@fax\@firstfooterelementfalse}%
       \ifthenelse{\isundefined{\@email}}{}{\footersymbol\emailsymbol~\emaillink{\@email}\@firstfooterelementfalse}%
+      \ifthenelse{\isundefined{\@homepage}}{}{\footersymbol\homepagesymbol~\httplink{\@homepage}\@firstfooterelementfalse}%
       \ifthenelse{\isundefined{\@extrainfo}}{}{\footersymbol\@extrainfo\@firstfooterelementfalse}}}%
   }%
   \pagestyle{plain}}
-\AtBeginDocument{\makefooter}
+
+% maketitle
+\renewcommand*{\maketitle}{%
+  \makefooter{}%
+  {%
+    \ifthenelse{\isundefined{\@photo}}%
+      {}%
+      {%
+      \setlength\fboxrule{\@photoframewidth}%
+        \ifdim\@photoframewidth=0pt%
+          \setlength{\fboxsep}{0pt}\fi%
+        {\color{firstnamecolor}\framebox{\includegraphics[width=\@photowidth]{\@photo}}}}%
+    \hfill%
+%    \raggedleft{\firstnamestyle{\MakeLowercase{\@firstname}}\familynamestyle{\MakeLowercase{\@familyname}}}\\[-.35em]}%
+    \raggedleft{\firstnamestyle{\@firstname}~\familynamestyle{\@familyname}}\\[-.35em]}%
+  {\color{firstnamecolor}\rule{\textwidth}{.25ex}\\[2.5em]}%
+% optional quote
+  \ifthenelse{\isundefined{\@quote}}%
+    {}%
+    {{\centering{}\begin{minipage}{\quotewidth}\centering\quotestyle{\@quote}\end{minipage}\\[2.5em]}}%
+  \par}% to avoid weird spacing bug at the first section if no blank line is left after \maketitle
 
 
 \endinput

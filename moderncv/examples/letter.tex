@@ -1,3 +1,11 @@
+%% start of file `letter.tex'.
+%% Copyright 2006-2010 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
 \documentclass[11pt]{article}
 
 
@@ -13,7 +21,7 @@
 
 \pagestyle{empty}
 
-\usepackage[scale=0.775]{geometry}
+\usepackage[scale=0.8]{geometry}
 \setlength{\parindent}{0pt}
 \addtolength{\parskip}{6pt}
 
@@ -24,9 +32,8 @@
 \def\FileSubject{Cover letter}
 \def\FileKeyWords{\firstname \familyname, Cover letter}
 
-\renewcommand{\ttdefault}{pcr}
-
 \usepackage{url}
+\renewcommand{\ttdefault}{pcr}
 \urlstyle{tt}
 \ifpdf
   \usepackage[pdftex,pdfborder=0,breaklinks,baseurl=http://,pdfpagemode=None,pdfstartview=XYZ,pdfstartpage=1]{hyperref}
@@ -41,10 +48,10 @@
   \usepackage[dvips]{hyperref}
 \fi
 
+\renewcommand{\familydefault}{\sfdefault}% for use with a résumé using sans serif fonts;
+%\renewcommand{\familydefault}{\rmdefault}% for use with a résumé using sans serif fonts;
 
 \begin{document}
-\sffamily   % for use with a résumé using sans serif fonts;
-%\rmfamily  % for use with a résumé using serif fonts;
 \hfill%
 \begin{minipage}[t]{.6\textwidth}
 \raggedleft%
