@@ -1,82 +1,166 @@
-%% Copyright 2006-2011 Xavier Danaux (xdanaux@gmail.com).
+%% Copyright 2006-2012 Xavier Danaux (xdanaux@gmail.com).
 %
 % This work may be distributed and/or modified under the
 % conditions of the LaTeX Project Public License version 1.3c,
 % available at http://www.latex-project.org/lppl/.
 
 
-\documentclass[11pt,a4paper]{moderncv}
+% moderncv package is available in texlive-full
+\documentclass[11pt,a4paper]{moderncv}   % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 
 % moderncv themes
-\moderncvtheme[blue,roman]{casual}                  % optional argument are 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'roman' (for roman fonts, instead of sans serif fonts)
-
-\usepackage{textcomp}
+\moderncvstyle{casual}                        % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue}                          % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\sfdefault}    % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
 
 % character encoding
-\usepackage[utf8]{inputenc}                   % replace by the encoding you are using
+\usepackage[utf8]{inputenc}                  % if you are not using xelatex ou lualatex, replace by the encoding you are using
 %\usepackage{CJKutf8}                         % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
 
+% make font warnings go away
+\usepackage{textcomp}
+
 % adjust the page margins
-\usepackage[scale=0.8]{geometry}
-%\setlength{\hintscolumnwidth}{3cm}           % if you want to change the width of the column with the dates
-%\setlength{\maketitlenamewidth}{10cm}}       % only for the classic theme, if you want to change the width of your name placeholder (to leave more space for your address details
+\usepackage[scale=0.75]{geometry}
+\setlength{\hintscolumnwidth}{3.5cm}           % if you want to change the width of the column with the dates
+%\setlength{\maketitlenamewidth}{10cm}        % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
 
 % personal data
 \firstname{Joel}
 \familyname{Pettersson}
-\birthdate{1988-05-19}
-%\title{Resumé title (optional)}               % optional, remove the line if not wanted
-\address{Redargatan 5}{120 61 Stockholm}    % optional, remove the line if not wanted
-\mobile{070-339 79 89}                    % optional, remove the line if not wanted
-%\phone{phone (optional)}                      % optional, remove the line if not wanted
-%\fax{fax (optional)}                          % optional, remove the line if not wanted
-\email{joelpet@kth.se}                      % optional, remove the line if not wanted
-%\homepage{homepage (optional)}                % optional, remove the line if not wanted
-%\extrainfo{additional information (optional)} % optional, remove the line if not wanted
-%\photo[82pt][0pt]{kth-logo-main}                  % '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file; optional, remove the line if not wanted
+\title{Civilingenjör i datateknik}               % optional, remove the line if not wanted
+\address{Redargatan 5}{120 61 Stockholm}      % optional, remove the line if not wanted
+\mobile{070-339 79 89}                          % optional, remove the line if not wanted
+%\phone{+2~(345)~678~901}                      % optional, remove the line if not wanted
+%\fax{+3~(456)~789~012}                        % optional, remove the line if not wanted
+\email{petterssonjoel@gmail.com}                      % optional, remove the line if not wanted
+%\homepage{www.johndoe.com}                    % optional, remove the line if not wanted
+%\extrainfo{additional information}            % optional, remove the line if not wanted
+%\photo[64pt][0.4pt]{picture}                  % '64pt' is the height the picture must be resized to, 0.4pt is the thickness of the frame around it (put it to 0pt for no frame) and 'picture' is the name of the picture file; optional, remove the line if not wanted
 %\quote{Some quote (optional)}                 % optional, remove the line if not wanted
 
-%\nopagenumbers{}                             % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
 %----------------------------------------------------------------------------------
 %            content
 %----------------------------------------------------------------------------------
 \begin{document}
-%\begin{CJK*}{UTF8}{gbsn}                    % to typeset your resume in Chinese using CJK
-\maketitle
+%\begin{CJK*}{UTF8}{gbsn}                     % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
 
-\section{Mål}
-Mitt mål är att få tillämpa de kunskaper och färdigheter inom datateknik som jag har utvecklat under min tid på KTH.
+%\section{Mål}
+%Mitt mål är att få tillämpa och utveckla mina kunskaper och färdigheter inom
+%datateknik från KTH och QUT.
+
+%\cventry{year--year}{Degree}{Institution}{City}{\textit{Grade}}{Description}  % arguments 3 to 6 can be left empty
 
 \section{Utbildning}
-\cventry{2007--ff}{Civilingenjör i datateknik}{KTH}{Stockholm}{}{%
-Slutfört samtliga kurser i utbildningen; endast examensarbetet återstår. Inriktning delvis mot \emph{Autonoma system} och
-\emph{Datasäkerhet}, men framför allt \emph{Programsystemteknik}. Där ingår kurser så som Maskininlärning, Robotik och autonoma system, Operativsystem, Kompilatorkonstruktion och Programmering av parallella system. Under utbildningen har jag fått övning i att snabbt ta till mig kunskap inom nya områden.}
+\cventry{2012--2013}{University Exchange Diploma}{QUT}{Brisbane, Australien}{}{%
+    Arbetade med projektet \emph{Exploiting Design Patterns To Automatically
+        Parallelize Programs} under handledning av Dr Wayne Kelly. Jag
+    undersökte hur tillämpning av designmönster i program -- genom ramverk
+    eller uppmärkning av koden -- kan användas för automatisk parallelisering.
+}
+\cventry{2007--2012}{Civilingenjör i datateknik}{KTH}{Stockholm}{}{%
+    Inriktning huvudsakligen mot \emph{Programsystemteknik}, men även
+    \emph{Autonoma system} och \emph{Datasäkerhet}. Där ingår exempelvis
+    kurserna Maskininlärning, Robotik och autonoma system, Operativsystem,
+    Kompilatorkonstruktion och Programmering av parallella system. Under
+    utbildningen har jag fått övning i att snabbt ta till mig kunskap och
+    applicera denna inom nya områden.
+}
 \cventry{2004--2007}{Gymnasium, Naturvetenskapsprogrammet}{Jenny Nyströmsskolan}{Kalmar}{}{%
-Läste dubbla inriktningar -- Naturvetenskap samt Matematik och Datavetenskap -- för att få med fortsättningskurserna inom fysik, kemi och biologi samtidigt som jag kunde ägna mig åt mitt intresse datavetenskap.
+    Läste dubbla inriktningar -- Naturvetenskap samt Matematik och
+    Datavetenskap -- för att få med fortsättningskurserna inom fysik, kemi och
+    biologi samtidigt som jag kunde ägna mig åt mitt datavetenskapliga
+    intresse.
 }
 
+\section{Examensarbete}
+\cvitem{Titel}{\emph{Kommunikation med extern, avancerad GPS-utrustning via
+        mobil enhet}}
+\cvitem{Beskrivning}{%
+    Undersökte möjligheten att kommunicera med en militär GPS-mottagare via
+    dess serieportsgränssnitt från en mobil enhet. Det var lämpligt att endast
+    använda existerande hårdvara som fungerade utan att enhetens fasta
+    programvara eller operativsystem byttes ut. Projektet ledde fram till två
+    lösningar som implementerades: ett Apple-godkänt tillbehör för RS-232 till
+    iOS och en generisk serieportsadapter till en Android-enhet med
+    USB-värdstöd. Båda integrerade samma -- sedan tidigare utvecklat --
+    programvarubibliotek, vilket hanterade den för GPS-mottagaren
+    protokollspecifika kommunikationen. }
+
+
 \section{Arbetslivserfarenhet}
-\cventry{2009 sep--2012 mar}{Webbutvecklare och programmerare}{Triple A Lifestyle}{Stockholm}{}{%
-Utveklade en webbapplikation baserad på Drupal (PHP och MySQL) med tillhörande Android-applikation i ett arbetslag om 4-8 personer. Hanterade alltifrån databasfrågor och visuell presentation till konfigurering av webb-, databas- och versionshanteringssystemsservrar m.m.  Under min tid på företaget lärde jag mig bl.a. att bättre ta tillvara på andras id\'{e}er och synpunkter.
+\cventry{2012 mar -- 2012 okt}{Examensarbetare}{Sjöland \& Thyselius}{Stockholm}{}{%
+    Arbetet krävde bl.a.\ utvärdering av möjliga tillvägagångssätt, inläsning på
+    protokoll och andra specifikationer samt avancerad programmering på olika
+    plattformar. Vid sidan av examensarbetet deltog jag i tekniska veckomöten
+    avsedda att dela kunskap inom företaget.
+}
+\cventry{2009 sep -- 2012 mar}{Webbutvecklare och programmerare}{Triple A Lifestyle}{Stockholm}{}{%
+    Utvecklade en webbapplikation baserad på Drupal (PHP och MySQL) med
+    tillhörande Android-applikation i ett arbetslag om 4-8 personer. Jag
+    hanterade alltifrån databasfrågor, programmering och visuell presentation
+    till konfigurering av webb-, databas- och versionshanteringssystemsservrar
+    m.m. Under min tid på företaget lärde jag mig bl.a.\ att bättre ta tillvara
+    på andras id\'{e}er och synpunkter.
 }
 
 \section{Språkkunskaper}
-\cvlanguage{Engelska}{Goda}{MVG i Engelska A och B på gymnasiet.}
-\cvlanguage{Svenska}{Modersmål}{Strävar alltid efter tydlighet och korrekthet i språket.}
+\cvlanguage{Engelska}{Goda}{MVG i Engelska A och B. Levt åtta månader i Australien.}
+\cvlanguage{Svenska}{Modersmål}{Strävar efter att vara tydlig och korrekt.}
 
-\section{Datakunskaper}
-\cvline{Programmerings\-språk}{Java, PHP, C, C++, Matlab, Python och Bash.}
-\cvline{Operativsystem}{Ubuntu (GNU/Linux) och Windows.}
-\cvline{VCS}{Git, SVN, CVS och Bazaar.}
-\cvline{Utvecklingsmiljöer}{Eclipse, Netbeans och VIM.}
+\section{Teknikkunskaper}
+\cvline{Programmeringsspråk}{Java, C, C++, Objective-C, PHP, SQL, Javascript,
+    Python, Matlab, Bash; (X)HTML, CSS.}
+\cvline{Ramverk \& bibliotek}{Android, iOS; Drupal; POSIX Threads, OpenMP, Message Passing Interface.}
+\cvline{Utvecklingsmiljöer}{Eclipse, Netbeans, Xcode, Emacs, VIM.}
+\cvline{Verktyg}{Git, SVN, CVS, Bazaar; Ant, GNU Make, Maven.}
+\cvline{Operativsystem}{Ubuntu (GNU/Linux), Windows, Mac OS X.}
+
+%\renewcommand{\listitemsymbol}{-~}            % change the symbol for lists
 
 
-%\section{Interests}
-%\cvline{Volleyball}{\small I love playing volleyball, both indoors and on the beach. It keeps me alert and in good shape at the same time as it offers a lot of social contact with other people.}
+% Publications from a BibTeX file without multibib\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% for BibTeX numerical labels
+%\nocite{*}
+%\bibliographystyle{plain}
+%\bibliography{publications}                   % 'publications' is the name of a BibTeX file
 
-%\section{Miscellaneous}
-%\cvlistitem{Swedish driving license B (car).}
+% Publications from a BibTeX file using the multibib package
+%\section{Publications}
+%\nocitebook{book1,book2}
+%\bibliographystylebook{plain}
+%\bibliographybook{publications}              % 'publications' is the name of a BibTeX file
+%\nocitemisc{misc1,misc2,misc3}
+%\bibliographystylemisc{plain}
+%\bibliographymisc{publications}              % 'publications' is the name of a BibTeX file
 
-%\clearpage\end{CJK*}                        % if you are typesetting your resume in Chinese using CJK; the \clearpage is required for fancyhdr to work correctly with CJK, though it kills the page numbering by making \lastpage undefined
+%\clearpage
+%-----       letter       ---------------------------------------------------------
+% recipient data
+%\recipient{Company Recruitment team}{Company, Inc.\\123 somestreet\\some city}
+%\date{January 01, 1984}
+%\opening{Dear Sir or Madam,}
+%\closing{Yours faithfully,}
+%\enclosure{curriculum vit\ae{}}
+%\makelettertitle
+
+%Duis sit amet magna ante, at sodales diam. Aenean consectetur porta risus et sagittis. Ut interdum, enim varius pellentesque tincidunt, magna libero sodales tortor, ut fermentum nunc metus a ante. Vivamus odio leo, tincidunt eu luctus ut, sollicitudin sit amet metus. Nunc sed orci lectus. Ut sodales magna sed velit volutpat sit amet pulvinar diam venenatis.
+
+%\makeletterclosing
+
+%\clearpage\end{CJK*}                         % if you are typesetting your resume in Chinese using CJK; the \clearpage is required for fancyhdr to work correctly with CJK, though it kills the page numbering by making \lastpage undefined
 \end{document}
 
+
+%% end of file `template.tex'.
