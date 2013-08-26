@@ -235,6 +235,7 @@
 %-------------------------------------------------------------------------------
 \newcommand*{\firstname}[1]{\def\@firstname{#1}}
 \newcommand*{\familyname}[1]{\def\@familyname{#1}}
+\newcommand*{\birthdate}[1]{\def\@birthdate{#1}}
 \renewcommand*{\title}[1]{\def\@title{#1}}
 \newcommand*{\address}[2]{\def\@addressstreet{#1}\def\@addresscity{#2}}
 \newcommand*{\mobile}[1]{\def\@mobile{#1}}

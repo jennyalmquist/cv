@@ -137,6 +137,7 @@
       \centering%
       \addressfont\color{addresscolor}%
       \ifthenelse{\isundefined{\@addressstreet}}{}{%
+        \@firstname~\@familyname, \@birthdate\\%
         \addresssymbol~\@addressstreet%
         \@firstfooterelementfalse%
         \ifthenelse{\isundefined{\@addresscity}}{}{~--~\@addresscity}\\\@firstfooterelementtrue}%
@@ -145,7 +146,8 @@
       \ifthenelse{\isundefined{\@fax}}{}{\footersymbol\faxsymbol~\@fax\@firstfooterelementfalse}%
       \ifthenelse{\isundefined{\@email}}{}{\footersymbol\emailsymbol~\emaillink{\@email}\@firstfooterelementfalse}%
       \ifthenelse{\isundefined{\@homepage}}{}{\footersymbol\homepagesymbol~\httplink{\@homepage}\@firstfooterelementfalse}%
-      \ifthenelse{\isundefined{\@extrainfo}}{}{\footersymbol\@extrainfo\@firstfooterelementfalse}}}%
+      \ifthenelse{\isundefined{\@extrainfo}}{}{\footersymbol\@extrainfo\@firstfooterelementfalse}}%
+    }%
   }%
   \pagestyle{plain}}
 
